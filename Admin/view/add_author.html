@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Author</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">Admin Dashboard</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="manage_users.php">Manage Authors</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="add_author.php">Add Author</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">LogOut</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-4">
+      <h2>Add Author</h2>
+      <form action="add_author.php" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Username</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="psw" class="form-label">password</label>
+          <input
+            type="password"
+            name="psw"
+            id="psw"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="psw-repeat" class="form-label">Password again</label>
+          <input
+            type="password"
+            name="psw-repeat"
+            id="psw-repeat"
+            class="form-control"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add Author</button>
+      </form>
+    </div>
+  </body>
+</html>

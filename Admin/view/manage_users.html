@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Authors</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">Admin Dashboard</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="manage_users.php">Manage Authors</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="add_author.php">Add Author</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">LogOut</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-4">
+      <h2>Manage Users</h2>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+            <th>Posts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($users as $index =>
+          $user): ?>
+          <tr>
+            <td><?php echo $index + 1; ?></td>
+            <td><?php echo $user['name']; ?></td>
+            <td><?php echo $user['email']; ?></td>
+            <?php if ($user['type']!='Admin'):{?>
+            <td>
+              <form action="remove.php" method="post">
+                <input type="hidden" name="id" value=<?php echo $user['user_id']?>>
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+            <td>
+              <form action="user_posts.php" method="post">
+                <input type="hidden" name="id" value=<?php echo $user['user_id']?>>
+                <button type="submit">Posts</button>
+              </form>
+            </td>
+            <?php } endif; ?>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <div class="card shadow p-4" style="width: 400px">
+        <h2 class="text-center mb-4">Login</h2>
+        <form action="login.php" method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label">email</label>
+            <input
+              type="text"
+              name="email"
+              id="username"
+              class="form-control"
+              required
+            />
+          </div>
+          <?php if (!empty($errors['email'])): ?>
+          <div class="text-danger">
+            <?= htmlspecialchars($errors['email']) ?>
+          </div>
+          <?php endif; ?>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              name="psw"
+              id="password"
+              class="form-control"
+              required
+            />
+          </div>
+          <?php if (!empty($errors['psw'])): ?>
+          <div class="text-danger">
+            <?= htmlspecialchars($errors['psw']) ?>
+          </div>
+          <?php endif; ?>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+          <p class="text-center mt-3">
+            <?php if (!empty($errors['login'])): ?>
+            <div class="text-danger"><?= htmlspecialchars($errors['login']) ?></div>
+        <?php endif; ?>          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
